@@ -33,7 +33,7 @@ const NavBar = () => {
               <Link to='/instructors'>Instructors</Link>
               </li>
               <li>
-                <a>Item 3</a>
+              <Link to='/classes'>Classes</Link>
               </li>
             </ul>
           </div>
@@ -62,7 +62,14 @@ const NavBar = () => {
             </NavLink>
             </li>
             <li>
-              <a>Item 3</a>
+            <NavLink
+              to="/classes"
+              className={({ isActive }) =>
+                isActive ? "text-orange-400" : "default"
+              }
+            >
+              Classes
+            </NavLink>
             </li>
           </ul>
         </div>

@@ -6,7 +6,7 @@ import ClassItem from "../../../components/ClassItem/ClassItem";
 const PopularClass = () => {
     const [classes,setClasses]=useState([])
     useEffect(()=>{
-        fetch('class.json')
+        fetch('http://localhost:5000/class')
         .then(res=>res.json())
         .then(data=>{
             const popularItems=data.filter(item=>item.category === "popular")

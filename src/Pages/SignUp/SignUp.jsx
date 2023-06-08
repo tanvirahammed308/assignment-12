@@ -1,10 +1,11 @@
 import { useContext } from "react";
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
-import { AuthContext } from "../../provider/AuthProvider";
+
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import SocalLogin from "../shared/socialLogin/SocalLogin";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const SignUp = () => {
     const { createUser, updatUserProfile } = useContext(AuthContext);

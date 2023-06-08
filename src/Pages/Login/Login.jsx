@@ -1,10 +1,15 @@
 import { useEffect, useState } from "react";
 
+import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
+import { AuthContext } from '../../provider/AuthProvider';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
+import Swal from 'sweetalert2';
+import SocalLogin from '../shared/socialLogin/SocalLogin';
 const Login = () => {
   
     const [disabled,setDisabled]=useState(true)
-    const {signIn}=useContext(AuthContext)
+    // const {signIn}=useContext(AuthContext)
     const navigate=useNavigate();
     const location=useLocation()
     const from = location.state?.from?.pathname || "/";

@@ -1,3 +1,5 @@
+import { Link, NavLink } from "react-router-dom";
+
 const NavBar = () => {
   return (
     <>
@@ -25,18 +27,10 @@ const NavBar = () => {
               className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 text-red-600"
             >
               <li className="text-red-800">
-                <a>Item 1</a>
+              <Link to='/'>Home</Link>
               </li>
               <li>
-                <a>Parent</a>
-                <ul className="p-2">
-                  <li>
-                    <a>Submenu 1</a>
-                  </li>
-                  <li>
-                    <a>Submenu 2</a>
-                  </li>
-                </ul>
+              <Link to='/instructors'>Instructors</Link>
               </li>
               <li>
                 <a>Item 3</a>
@@ -48,20 +42,24 @@ const NavBar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <a>Item 1</a>
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                isActive ? "text-orange-400" : "default"
+              }
+            >
+              Home
+            </NavLink>
             </li>
-            <li tabIndex={0}>
-              <details>
-                <summary>Parent</summary>
-                <ul className="p-2">
-                  <li>
-                    <a>Submenu 1</a>
-                  </li>
-                  <li>
-                    <a>Submenu 2</a>
-                  </li>
-                </ul>
-              </details>
+            <li >
+            <NavLink
+              to="/instructors"
+              className={({ isActive }) =>
+                isActive ? "text-orange-400" : "default"
+              }
+            >
+              Instructors
+            </NavLink>
             </li>
             <li>
               <a>Item 3</a>

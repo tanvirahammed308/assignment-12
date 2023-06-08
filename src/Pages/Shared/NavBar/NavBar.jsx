@@ -3,12 +3,12 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 
 const NavBar = () => {
-  const {user,logOut}=useContext(AuthContext);
-  const handleLogOut=()=>{
+  const { user, logOut } = useContext(AuthContext);
+  const handleLogOut = () => {
     logOut()
-    .then(() => {})
+      .then(() => {})
       .catch((error) => console.log(error));
-  }
+  };
   return (
     <>
       <div className="navbar bg-slate-600 text-white fixed z-10 bg-opacity-30 max-w-screen-xl mx-auto">
@@ -35,60 +35,102 @@ const NavBar = () => {
               className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 text-red-600"
             >
               <li className="text-red-800">
-              <Link to='/'>Home</Link>
+                <Link to="/">Home</Link>
               </li>
               <li>
-              <Link to='/instructors'>Instructors</Link>
+                <Link to="/instructors">Instructors</Link>
               </li>
               <li>
-              <Link to='/classes'>Classes</Link>
+                <Link to="/classes">Classes</Link>
               </li>
               <li>
-              <Link to='/login'>Login</Link>
+                <Link to="/secret">Secret</Link>
+              </li>
+              <li>
+                {user ? (
+                  <>
+                    <button
+                      onClick={handleLogOut}
+                      className="btn btn-active btn-neutral"
+                    >
+                      Log Out
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    <Link to="/login" className="btn">
+                      Login
+                    </Link>
+                  </>
+                )}
               </li>
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl text-green-400">Global Language Hub</a>
+          <a className="btn btn-ghost normal-case text-xl text-green-400">
+            Global Language Hub
+          </a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-            <NavLink
-              to="/"
-              className={({ isActive }) =>
-                isActive ? "text-orange-400" : "default"
-              }
-            >
-              Home
-            </NavLink>
-            </li>
-            <li >
-            <NavLink
-              to="/instructors"
-              className={({ isActive }) =>
-                isActive ? "text-orange-400" : "default"
-              }
-            >
-              Instructors
-            </NavLink>
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  isActive ? "text-orange-400" : "default"
+                }
+              >
+                Home
+              </NavLink>
             </li>
             <li>
-            <NavLink
-              to="/classes"
-              className={({ isActive }) =>
-                isActive ? "text-orange-400" : "default"
-              }
-            >
-              Classes
-            </NavLink>
+              <NavLink
+                to="/instructors"
+                className={({ isActive }) =>
+                  isActive ? "text-orange-400" : "default"
+                }
+              >
+                Instructors
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/classes"
+                className={({ isActive }) =>
+                  isActive ? "text-orange-400" : "default"
+                }
+              >
+                Classes
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/secret"
+                className={({ isActive }) =>
+                  isActive ? "text-orange-400" : "default"
+                }
+              >
+                Secret
+              </NavLink>
             </li>
           </ul>
         </div>
         <div className="navbar-end">
-          {
-            user ? <><button onClick={handleLogOut} className="btn btn-active btn-neutral">Log Out</button></>:<><Link to='/login' className="btn">Login</Link></>
-          }
-          
+          {user ? (
+            <>
+              <button
+                onClick={handleLogOut}
+                className="btn btn-active btn-neutral"
+              >
+                Log Out
+              </button>
+            </>
+          ) : (
+            <>
+              <Link to="/login" className="btn">
+                Login
+              </Link>
+            </>
+          )}
         </div>
       </div>
     </>

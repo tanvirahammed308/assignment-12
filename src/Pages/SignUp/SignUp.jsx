@@ -4,8 +4,9 @@ import { useForm } from "react-hook-form";
 
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import SocalLogin from "../shared/socialLogin/SocalLogin";
+
 import { AuthContext } from "../../providers/AuthProvider";
+import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
 const SignUp = () => {
     const { createUser, updatUserProfile } = useContext(AuthContext);
@@ -25,7 +26,7 @@ const SignUp = () => {
         .then(() => {
           const saveUser={name:data.name,email:data.email}
           // console.log("user profile upfdate");
-          fetch("https://bistro-boss-server-eight-zeta.vercel.app/users",{
+          fetch("http://localhost:5000/users",{
             method:"POST",
             headers:{
               "content-type":"application/json"
@@ -160,7 +161,7 @@ const SignUp = () => {
               <small>
                 Already have an account <Link to="/login">Login</Link>
               </small>
-              <SocalLogin></SocalLogin>
+             <SocialLogin></SocialLogin>
             </p>
           </div>
         </div>

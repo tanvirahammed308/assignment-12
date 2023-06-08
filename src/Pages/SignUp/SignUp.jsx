@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Helmet } from "react-helmet-async";
+
 import { useForm } from "react-hook-form";
 
 import { Link, useNavigate } from "react-router-dom";
@@ -55,9 +55,7 @@ const SignUp = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Bistro Boss | Sign Up</title>
-      </Helmet>
+      
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left">
@@ -123,7 +121,7 @@ const SignUp = () => {
                     required: true,
                     minLength: 6,
                     maxLength: 20,
-                    pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/,
+                    pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/
                   })}
                   name="password"
                   type="password"
@@ -134,14 +132,14 @@ const SignUp = () => {
                   <p className="text-red-600">Password is required</p>
                 )}
                 {errors.password?.type === "minLength" && (
-                  <p className="text-red-600">6 chatacter</p>
+                  <p className="text-red-600">password must be 6 chatacters</p>
                 )}
                 {errors.password?.type === "maxLength" && (
-                  <p className="text-red-600">less than 20 chatacter</p>
+                  <p className="text-red-600">password must be less than 20 chatacters</p>
                 )}
                 {errors.password?.type === "pattern" && (
                   <p className="text-red-600">
-                    one lower,one upper and one special
+                 password must have one upper case, one lower case,one number and one spcial chatacter
                   </p>
                 )}
                 <label className="label">

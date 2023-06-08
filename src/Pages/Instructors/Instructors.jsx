@@ -12,7 +12,7 @@ const Instructors = () => {
             setInstructors(data)})
     },[])
     return (
-        <div>
+        <div className="grid md:grid-cols-2 gap-4 ">
            {instructors.map(instructor=><Instructor key={instructor._id} instructor={instructor}></Instructor>)}
         </div>
     );

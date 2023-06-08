@@ -1,50 +1,50 @@
-// import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 
 const Login = () => {
   
-    // const [disabled,setDisabled]=useState(true)
-    // const {signIn}=useContext(AuthContext)
-    // const navigate=useNavigate();
-    // const location=useLocation()
-    // const from = location.state?.from?.pathname || "/";
-    // useEffect(()=>{
-    //     loadCaptchaEnginge(6); 
-    // },[])
-    // const handleLogin=e=>{
-    //     e.preventDefault();
-    //     const form=e.target;
-    //     const email=form.email.value;
-    //     const password=form.password.value;
-    //     console.log(email,password);
-    //     signIn(email,password).then(result=>{
-    //       const user=result.user;
-    //       console.log(user);
-    //       Swal.fire({
-    //         title: 'user login successful',
-    //         showClass: {
-    //           popup: 'animate__animated animate__fadeInDown'
-    //         },
-    //         hideClass: {
-    //           popup: 'animate__animated animate__fadeOutUp'
-    //         }
-    //       })
-    //       navigate(from, { replace: true });
-    //     })
-    // }
-    // const handleCaptcha=(e)=>{
-    //     const user_captcha_value=e.target.value;
-    //     // console.log(value);
-    //     if (validateCaptcha(user_captcha_value)==true) {
-    //         setDisabled(false)
-    //         alert('Captcha Matched');
-    //     }
-    //     else{
-    //         setDisabled(true)
-    //         alert('Captcha did not  Match');
-    //     }
+    const [disabled,setDisabled]=useState(true)
+    const {signIn}=useContext(AuthContext)
+    const navigate=useNavigate();
+    const location=useLocation()
+    const from = location.state?.from?.pathname || "/";
+    useEffect(()=>{
+        loadCaptchaEnginge(6); 
+    },[])
+    const handleLogin=e=>{
+        e.preventDefault();
+        const form=e.target;
+        const email=form.email.value;
+        const password=form.password.value;
+        console.log(email,password);
+        signIn(email,password).then(result=>{
+          const user=result.user;
+          console.log(user);
+          Swal.fire({
+            title: 'user login successful',
+            showClass: {
+              popup: 'animate__animated animate__fadeInDown'
+            },
+            hideClass: {
+              popup: 'animate__animated animate__fadeOutUp'
+            }
+          })
+          navigate(from, { replace: true });
+        })
+    }
+    const handleCaptcha=(e)=>{
+        const user_captcha_value=e.target.value;
+        // console.log(value);
+        if (validateCaptcha(user_captcha_value)==true) {
+            setDisabled(false)
+            alert('Captcha Matched');
+        }
+        else{
+            setDisabled(true)
+            alert('Captcha did not  Match');
+        }
 
-    // }
+    }
     return (
         <div>
             <div className="hero min-h-screen bg-base-200">

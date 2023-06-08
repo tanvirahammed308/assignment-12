@@ -35,6 +35,9 @@ const NavBar = () => {
               <li>
               <Link to='/classes'>Classes</Link>
               </li>
+              <li>
+              <Link to='/login'>Login</Link>
+              </li>
             </ul>
           </div>
           <a className="btn btn-ghost normal-case text-xl text-green-400">Global Language Hub</a>
@@ -74,7 +77,7 @@ const NavBar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Login</a>
+          <Link to='/login' className="btn">Login</Link>
         </div>
       </div>
     </>

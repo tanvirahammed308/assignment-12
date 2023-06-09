@@ -4,9 +4,12 @@ import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-s
 
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
-import Swal from 'sweetalert2';
-import SocalLogin from '../shared/socialLogin/SocalLogin';
+
+
 import { AuthContext } from "../../providers/AuthProvider";
+import SocialLogin from "../Shared/SocialLogin/SocialLogin";
+import Swal from "sweetalert2";
+
 const Login = () => {
   
     const [disabled,setDisabled]=useState(true)
@@ -115,7 +118,7 @@ const Login = () => {
             </div>
           </form>
           <p><small>New Here?<Link to='/signup'>Create an Account</Link></small></p>
-          <SocalLogin></SocalLogin>
+        <SocialLogin></SocialLogin>
         </div>
       </div>
     </div>

@@ -112,15 +112,21 @@ const NavBar = () => {
                 Secret
               </NavLink>
             </li>
+            <li>
+              <Link to='/'>
+                <button className="">
+                  Inbox
+                  <div className="badge badge-secondary">+99</div>
+                </button>
+              </Link>
+            </li>
           </ul>
         </div>
         <div className="navbar-end">
           {user ? (
             <>
-              <button
-                onClick={handleLogOut}
-                className="btn btn-active btn-neutral"
-              >
+              <span>{user?.displayName}</span>
+              <button onClick={handleLogOut} className="btn ml-10">
                 Log Out
               </button>
             </>

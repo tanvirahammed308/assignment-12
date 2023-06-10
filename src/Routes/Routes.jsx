@@ -10,6 +10,11 @@ import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
 import Secret from "../Pages/Shared/Secret/Secret";
 import PrivateRoute from "./PrivateRoute";
+import Dashboard from "../Layouts/Dashboard";
+import MySelectedClass from "../Pages/Dashboard/MySelectedClass/MySelectedClass";
+import MYEnroll from "../Pages/Dashboard/MyEntroll/MYEnroll";
+import PaymentHistory from "../Pages/Dashboard/PaymentHistory/PaymentHistory";
+import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
  export const router = createBrowserRouter([
     {
       path: "/",
@@ -40,6 +45,30 @@ import PrivateRoute from "./PrivateRoute";
           path: "secret",
           element: <PrivateRoute><Secret/></PrivateRoute>,
         },
+      ],
+     
+    },
+    {
+      path:'dashboard',
+      element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+      children: [
+        {
+          path: "myselectedclass",
+          element: <MySelectedClass/>,
+        },
+        {
+          path: "myenroll",
+          element: <MYEnroll/>,
+        },
+        {
+          path: "paymenthistory",
+          element: <PaymentHistory/>,
+        },
+        {
+          path: "allusers",
+          element: <AllUsers/>,
+        },
+        
       ],
     },
   ]);
